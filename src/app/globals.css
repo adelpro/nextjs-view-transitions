@@ -2,26 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Animate the page header separatly */
+.pageHeader {
+    view-transition-name: page-header;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.pageContent {
+    view-transition-name: page-content;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Views Animation */
+::view-transition-old(root) {
+    animation: fade-and-scale-out 0.5s ease-in-out 1 forwards;
+}
+
+::view-transition-new(root) {
+    animation: fade-and-scale-in 1s ease-in-out 1 forwards;
+}
+
+::view-transition-old(page-header) {
+    animation: hide 1s ease-in-out 1 forwards;
+}
+
+::view-transition-new(page-header) {
+    animation: slide-right 2s ease-in-out 1 forwards;
+}
+
+::view-transition-old(page-content) {
+    animation: hide 1s ease-in-out 1 forwards;
+}
+
+::view-transition-new(page-content) {
+    animation: slide-left 2.5s ease-in-out 1 forwards;
+}
+
+@keyframes fade-and-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hide {
+    from {
+        opacity: 1;
+
+    }
+
+    to {
+        opacity: 0;
+
+    }
+}
+
+@keyframes fade-and-scale-right {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Second animation */
+@keyframes slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
