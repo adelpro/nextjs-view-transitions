@@ -1,3 +1,9 @@
+Read our tutorial about nextjs-view-transitions on Hashnode:   
+[https://adelpro.hashnode.dev/page-transitions-in-nextjs-13-with-app-router-and-the-built-in-view-transitions-api-no-third-party-libraries](https://adelpro.hashnode.dev/page-transitions-in-nextjs-13-with-app-router-and-the-built-in-view-transitions-api-no-third-party-libraries)
+
+---
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
